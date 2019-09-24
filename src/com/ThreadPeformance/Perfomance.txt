@@ -1,0 +1,16 @@
+Performance in MultiThreading:
+
+Latency - Time for completion of task. Measured in time units.
+
+Throughput - Amount of tasks completed in a given period of time. Measured in Tasks/Unit time.
+
+A Task which require time T to complete can be broken to sub-tasks then the latency= T/N.. where N is number of sub-tasks.
+On a General computer the N should be equal to the number of Cores in computer.With the assumptions that
+# of Threads = # of cores is optimal only if  all threads are runnable and if threads can run without any
+ interruption(no blocking I/O calls/ sleep etc). And nothing else is consuming lot of CPU.
+
+ Inherent cost of Parallelization:
+Not all tasks can be broken to subtasks. Small tasks are not suitable to be run parallel.
+ Breaking tasks to subtasks  -> Thread creation passing tasks to thread -> Time between thread.start() and thread getting scheduled
+ -> Time until last thread finishes and signals -> time until aggregating threads -> aggregation of results.
+
